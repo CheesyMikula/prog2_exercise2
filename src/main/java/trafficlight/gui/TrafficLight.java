@@ -1,9 +1,15 @@
 package trafficlight.gui;
 
 
-import java.awt.*;
+import trafficlight.Observer.Observer;
+import trafficlight.states.State;
 
-public class TrafficLight extends Light {
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Observable;
+
+public class TrafficLight extends Light implements Observer {
 
     TrafficLight(Color color) {
         super(color);
@@ -18,5 +24,13 @@ public class TrafficLight extends Light {
         return isOn;
     }
 
+    @Override
+    public void update() {
+
+        this.turnOn(!isOn);
+    }
+
     //TODO implement a part of the pattern here
+
+
 }
